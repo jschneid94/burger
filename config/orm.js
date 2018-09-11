@@ -8,11 +8,19 @@ const orm = {
             console.log(result);
         });
     },
-    insertOne: function() {
-
+    insertOne: function(tableInput, colToInput, valToInsert) {
+        var queryString = "INSERT INTO ?? (??) VALUES (?)";
+        connection.query(queryString, [tableInput, colToInput, valToInsert], function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
     },
-    updateOne: function() {
-
+    updateOne: function(tableInput, colToInput, newColVal, id, idVal) {
+        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, colToInput, newColVal, id, idVal], function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
     }
 }
 
