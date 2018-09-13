@@ -13,4 +13,12 @@ router.get("/", function(req, res) {
     });
 });
 
+router.post("/", function(req, res) {
+    burger.insertOne("burger_name", 
+        [req.body.name], 
+        function(data) {
+            res.json({ id: data.insertId });
+        });
+});
+
 module.exports = router;
