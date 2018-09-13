@@ -1,5 +1,5 @@
 $(function() {
-    // If devour button is pressed on a requested burger
+    // Devour button
     $(".devour").on("click", function(event) {
         var id = $(this).data("id");
         var devouredBurger = {
@@ -11,6 +11,22 @@ $(function() {
             data: devouredBurger
         }).then(function() {
             console.log(`Burger #${id} has been devoured!`);
+            location.reload();
+        });
+    });
+    // Submit requested burger
+    $(".requestBurger").on("submit", function(event) {
+        event.preventDefault();
+
+        var newBurger = {
+            name: $("#burgerName").val().trim(),
+        };
+
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(function() {
+            console.log("Created a new burger!");
             location.reload();
         });
     });
