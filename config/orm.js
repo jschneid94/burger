@@ -1,4 +1,4 @@
-const connection = require('./orm.js');
+const connection = require('./connection');
 
 function objToSql(ob) {
     var arr = [];
@@ -32,6 +32,7 @@ const orm = {
     },
     insertOne: function(tableInput, colToInput, valToInsert, cb) {
         var queryString = "INSERT INTO ?? (??) VALUES (?)";
+        colToInput = colToInput.toString();
         connection.query(queryString, [tableInput, colToInput, valToInsert], function(err, result) {
             if (err) throw err;
             cb(result);

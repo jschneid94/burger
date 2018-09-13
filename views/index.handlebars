@@ -1,0 +1,23 @@
+<h1>Burger ME</h1>
+
+<div>
+    <h2>Burger Requests</h2>
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                {{> }}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
+<div>
+    <h2>Burgers Eaten</h2>
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                {{> }}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
