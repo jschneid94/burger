@@ -32,16 +32,15 @@ const orm = {
     },
     insertOne: function(tableInput, colToInput, valToInsert, cb) {
         var queryString = "INSERT INTO ?? (??) VALUES (?)";
-        valToInsert = objToSql(valToInsert);
         connection.query(queryString, [tableInput, colToInput, valToInsert], function(err, result) {
             if (err) throw err;
             cb(result);
         });
     },
     updateOne: function(tableInput, objColVals, condition, cb) {
-        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        var queryString = "UPDATE ?? SET ? WHERE ?";
         objColVals = objToSql(objColVals);
-        connection.query(queryString, [tableInput, colToInput, newColVal, id, idVal], function(err, result) {
+        connection.query(queryString, [tableInput, objColVals, condition], function(err, result) {
             if (err) throw err;
             cb(result);
         });

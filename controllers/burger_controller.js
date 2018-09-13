@@ -17,12 +17,22 @@ router.post("/api/burgers", function(req, res) {
     burger.create("burger_name", 
         [req.body.name], 
         function(data) {
+            console.log(data);
             res.json({ id: data.insertId });
         });
 });
 
-router.put("/", function(req, res) {
-    burger.update("")
-})
+router.put("/api/burgers/:id", function(req, res) {
+    var condition = `id = ${req.params.id}`;
+    console.log(`Condition: ${condition}`);
+
+    burger.update({devoured: req.body.devoured}, condition, function(data) {
+        if (data.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
 module.exports = router;
