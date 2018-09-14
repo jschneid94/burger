@@ -1,7 +1,7 @@
 <li>
     {{burger_name}}
 
-    <button class="devour" data-id="{{id}}" data-newdevoured="{{devoured}}">
+    <button class="devour" type="button" name="action" data-id="{{id}}" data-eaten="{{devoured}}">
         {{#unless devoured}}DEVOUR!{{/unless}}
     </button>
 </li>

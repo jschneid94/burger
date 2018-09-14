@@ -2,7 +2,7 @@
 
 <div>
     <h2>Burger Requests</h2>
-    <ul>
+    <ul id="burgerRequests">
         {{#each burgers}}
             {{#unless devoured}}
                 {{> burgers/burger-block devoured=false}}

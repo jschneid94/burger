@@ -1,9 +1,11 @@
 $(function() {
     // Devour button
-    $(".devour").on("click", function(event) {
+    $("#burgerRequests").on("click", ".devour", function(event) {
+        console.log("click")
         var id = $(this).data("id");
+        var eaten = $(this).data("eaten");
         var devouredBurger = {
-            devoured: true
+            devoured: eaten
         };
 
         $.ajax(`/api/burger/${id}`, {

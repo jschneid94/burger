@@ -39,9 +39,9 @@ const orm = {
         });
     },
     updateOne: function(tableInput, objColVals, condition, cb) {
-        var queryString = "UPDATE ?? SET ? WHERE ?";
-        objColVals = objToSql(objColVals);
-        connection.query(queryString, [tableInput, objColVals, condition], function(err, result) {
+        var queryString = `UPDATE ${tableInput} SET ${objToSql(objColVals)} WHERE ${condition}`;
+        console.log(objColVals);
+        connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
         });
