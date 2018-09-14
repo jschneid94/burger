@@ -1,9 +1,13 @@
-<li>
-    {{burger_name}}
-
-    {{#unless devoured}}
-        <button class="devour" type="button" name="action" data-id="{{id}}" data-eaten="{{devoured}}">
-            DEVOUR!
-        </button>
-    {{/unless}}
+<li class="collection-item">
+    <div>
+        {{burger_name}}
+    </div>
+    <div>
+        {{#unless devoured}}
+            <a class="devour waves-effect waves-light btn-small" data-id="{{id}}" data-eaten="{{devoured}}">
+                <i class="material-icons right">fastfood</i>
+                Eat
+            </a>
+        {{/unless}}
+    </div>
 </li>
