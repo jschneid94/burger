@@ -1,4 +1,6 @@
-/* img {
-    height: 200px;
-    width: auto
-} */
+main {
+    margin-top: 50px;
+}
+img {
+    vertical-align: middle;
+}

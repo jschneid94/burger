@@ -17,7 +17,7 @@ $(function() {
         });
     });
     // Submit requested burger
-    $(".requestBurger").on("submit", function(event) {
+    $(".requestBurger").on("click", "#submitBurger", function(event) {
         event.preventDefault();
 
         var newBurger = {
