@@ -27,13 +27,26 @@ router.put("/api/burgers/:id", function(req, res) {
     var condition = `id = ${req.params.id}`;
     console.log(`Condition: ${condition}`);
 
-    burger.update({devoured: true}, condition, function(data) {
-        if (data.changedRows == 0) {
+    burger.update({devoured: true}, condition, function(result) {
+        if (result.changedRows == 0) {
             return res.status(404).end();
         } else {
             res.status(200).end();
         }
     });
 });
+
+router.delete("/api/burgers/id", function(req, res) {
+    var condition = `id = ${req.params.id}`;
+    console.log(`Condition: ${condition}`);
+
+    burger.delete(condition, function(result) {
+        if (result.affectedRows == 0) {
+            return res.status(404).end();
+        } else {
+        res.status(200).end();
+        }
+    });
+})
 
 module.exports = router;

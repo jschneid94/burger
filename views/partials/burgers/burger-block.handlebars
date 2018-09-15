@@ -1,6 +1,11 @@
 <li class="collection-item amber">
     <div>
-        {{burger_name}}
+        {{burger_name}}  
+        {{#if devoured}}
+            <a class="remove waves-effect waves-light red darken-1 btn-floating btn-small right" data-id="{{id}}" data-eaten="{{devoured}}">
+                <i class="material-icons right">close</i>
+            </a>
+        {{/if}}
     </div>
     <div>
         {{#unless devoured}}
