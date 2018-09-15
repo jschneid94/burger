@@ -12,6 +12,7 @@ $(function() {
             data: devouredBurger
         }).then(function() {
             console.log(`Burger #${id} has been devoured!`);
+            // Reload the collections instead of the whole page.
             $("#burgerRequests").load(location.href + " #burgerRequests>*", "");
             $("#burgersEaten").load(location.href + " #burgersEaten>*", "");
         });
@@ -19,16 +20,18 @@ $(function() {
     // Submit requested burger
     $(".requestBurger").on("click", "#submitBurger", function(event) {
         event.preventDefault();
-
         var newBurger = {
             name: $("#burgerName").val().trim(),
         };
+        
         $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(function() {
+            // Empty the input field
             $("#burgerName").val("");
             console.log("Created a new burger!");
+            // Reload the collections instead of the whole page.
             $("#burgerRequests").load(location.href + " #burgerRequests>*", "");
             $("#burgersEaten").load(location.href + " #burgersEaten>*", "");
         });
@@ -40,6 +43,7 @@ $(function() {
             type: "DELETE"
         }).then(function() {
             console.log(`Deleted burger #${id}`);
+            // Reload the collections instead of the whole page.
             $("#burgerRequests").load(location.href + " #burgerRequests>*", "");
             $("#burgersEaten").load(location.href + " #burgersEaten>*", "");
         }

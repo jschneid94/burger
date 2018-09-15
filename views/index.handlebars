@@ -1,16 +1,19 @@
 <main>
     <div class="row wrapper center">
+
+        {{!-- REQUESTED BURGER SECTION --}}
         <div class="col s3 offset-s1">
             <h4>Burger Requests</h4>
             <ul id="burgerRequests" class="collection">
                 {{#each burgers}}
                     {{#unless devoured}}
+                        {{!-- BURGER-BLOCK PARTIAL --}}
                         {{> burgers/burger-block devoured=false}}
                     {{/unless}}
                 {{/each}}
             </ul>
         </div>
-
+        {{!-- SUBMIT BURGER SECTION --}}
         <div class="col s4">
             {{!-- Burger IMG --}}
             <div class="valign-wrapper">
@@ -31,18 +34,21 @@
                 </form>
             </div>
         </div>
-
+        {{!-- DEVOURED BURGER SECTION --}}
         <div class="col s3">
             <h4>Burgers Eaten</h4>
             <ul id="burgersEaten" class="collection">
                 {{#each burgers}}
                     {{#if devoured}}
+                        {{!-- BURGER-BLOCK PARTIAL --}}
                         {{> burgers/burger-block devoured=true}}
                     {{/if}}
                 {{/each}}
             </ul>
         </div>
+        
     </div> {{!-- End of row --}}
 </main> {{!-- End of main --}}
 
+{{!-- PAGE FOOTER PARTIAL --}}
 {{> burgers/footer}}
