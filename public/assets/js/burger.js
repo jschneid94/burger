@@ -23,7 +23,6 @@ $(function() {
         var newBurger = {
             name: $("#burgerName").val().trim(),
         };
-
         $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
@@ -31,5 +30,18 @@ $(function() {
             console.log("Created a new burger!");
             location.reload();
         });
+    });
+    $(".collection-item").on("click", ".remove", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        $.ajax(`/api/cats/${id}`, {
+            type: "DELETE"
+        }).then(
+            function() {
+              console.log(`Deleted burger #${id}`);
+              location.reload();
+            }
+        );
     });
 });
