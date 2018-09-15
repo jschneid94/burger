@@ -31,11 +31,12 @@ $(function() {
             location.reload();
         });
     });
+    // Delete devoured burger
     $(".collection-item").on("click", ".remove", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
-        $.ajax(`/api/cats/${id}`, {
+        $.ajax(`/api/burgers/${id}`, {
             type: "DELETE"
         }).then(
             function() {
