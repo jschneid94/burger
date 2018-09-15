@@ -11,7 +11,7 @@
 ## Installation
 
 To install the application, run the following commands:
-
+ 
 ```
 git clone https://github.com/jschneid94/burger.git
 cd burger
