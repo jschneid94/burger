@@ -34,7 +34,7 @@
 
         <div class="col s3">
             <h4>Burgers Eaten</h4>
-            <ul class="collection">
+            <ul id="burgersEaten" class="collection">
                 {{#each burgers}}
                     {{#if devoured}}
                         {{> burgers/burger-block devoured=true}}
