@@ -4,6 +4,8 @@
 
 **__Eat Da Burger__** is a full-stack application designed to store user's input and store the information and any changes made into a database. Users can submit a request for a burger which will cause it to appear on the menu. Users can order off the menu, which will move the entry to the list of eaten burgers. Finally, users can remove eaten burgers off of their list if they did not like it.
 
+![Eat Da Burger](/public/assets/images/screenshot.PNG)
+
 ## Demo
 
 **__Eat Da Burger__** is deployed on Heroku. Check it out [here](https://jrs-burger.herokuapp.com/).
